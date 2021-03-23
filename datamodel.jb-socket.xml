@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.6">
+<!-- 
+ * @copyright   Copyright (C) 2021 Jeffrey Bostoen
+ * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
+-->
+	<classes>
+		<class id="Socket" _delta="define">
+			<parent>FunctionalCI</parent>
+			<properties>
+				<category>bizmodel,searchable,structure</category>
+				<abstract>false</abstract>
+				<key_type>autoincrement</key_type>
+				<db_table>socket</db_table>
+				<db_key_field>id</db_key_field>
+				<naming>
+					<attributes>
+						<attribute id="name"/>
+					</attributes>
+				</naming>
+				<order>
+					<columns>
+						<column id="name" ascending="true"/>
+					</columns>
+				</order>
+				<reconciliation>
+					<attributes>
+						<attribute id="name"/>
+					</attributes>
+				</reconciliation>
+				<icon>images/socket.png</icon>
+			</properties>
+			<fields>
+				<field id="geometry" xsi:type="AttributeGeometry">
+					<sql>geometry</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+					<format>WKT|Point,LineString,Polygon|EPSG:3857</format>
+				</field>
+				<field id="type" xsi:type="AttributeEnum">
+					<sql>type</sql>
+					<values>
+						<value id="rj45">rj45</value>
+					</values>
+					<default_value>rj45</default_value>
+					<is_null_allowed>false</is_null_allowed>
+				</field>
+				<field id="location_id" xsi:type="AttributeExternalKey">
+					<sql>location_id</sql>
+					<on_target_delete>DEL_AUTO</on_target_delete>
+					<is_null_allowed>true</is_null_allowed>
+					<target_class>Location</target_class>
+				</field>
+			</fields>
+			<methods/>
+			<presentation>
+				<details>
+					<items>
+						<item id="org_id">
+							<rank>1</rank>
+						</item>
+						<item id="name">
+							<rank>11</rank>
+						</item>
+						<item id="location_id">
+							<rank>21</rank>
+						</item>
+						<item id="geometry">
+							<rank>101</rank>
+						</item>
+					</items>
+				</details>
+				<search>
+					<items>
+						<item id="org_id">
+							<rank>1</rank>
+						</item>
+						<item id="name">
+							<rank>11</rank>
+						</item>
+						<item id="location_id">
+							<rank>21</rank>
+						</item>
+					</items>
+				</search>
+				<default_search>
+					<items>
+						<item id="org_id">
+							<rank>1</rank>
+						</item>
+						<item id="name">
+							<rank>11</rank>
+						</item>
+						<item id="location_id">
+							<rank>21</rank>
+						</item>
+						<item id="type">
+							<rank>31</rank>
+						</item>
+					</items>
+				</default_search>
+				<list>
+					<items>
+						<item id="org_id">
+							<rank>1</rank>
+						</item>
+						<item id="name">
+							<rank>11</rank>
+						</item>
+						<item id="location_id">
+							<rank>21</rank>
+						</item>
+						<item id="type">
+							<rank>31</rank>
+						</item>
+					</items>
+				</list>
+			</presentation>
+		</class>
+
+	</classes>
+	
+		<menus>
+			<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ConfigManagementOverview" xsi:type="DashboardMenuNode">
+				<definition>
+					<cells>
+						<cell id="0">
+							<dashlets>
+								<dashlet id="Socket" xsi:type="DashletBadge" _delta="define">
+									<rank>101</rank>
+									<class>Socket</class>
+								</dashlet>
+							</dashlets>
+						</cell>
+					</cells>
+				</definition>
+			</menu>
+		</menus>
+	<user_rights>
+		<groups>
+		<group id="Configuration">
+			<classes>
+				<class id="DockingStation" _delta="define"/>
+			</classes>
+		</group>
+		</groups>
+	</user_rights>
+	
+</itop_design>
+
+
