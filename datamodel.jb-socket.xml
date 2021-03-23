@@ -51,6 +51,11 @@
 					<is_null_allowed>true</is_null_allowed>
 					<target_class>Location</target_class>
 				</field>
+				<field id="comment" xsi:type="AttributeString">
+					<sql>comment</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
 			</fields>
 			<methods/>
 			<presentation>
@@ -64,6 +69,9 @@
 						</item>
 						<item id="location_id">
 							<rank>21</rank>
+						</item>
+						<item id="comment">
+							<rank>31</rank>
 						</item>
 						<item id="geometry">
 							<rank>101</rank>
