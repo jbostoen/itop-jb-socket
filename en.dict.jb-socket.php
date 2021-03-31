@@ -18,6 +18,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	
 	'Class:Socket/Attribute:location_id' => 'Location',
 	'Class:Socket/Attribute:geometry' => 'Geometry',
+	'Class:Socket/Attribute:comment' => 'Comment',
 	
 ));
 
